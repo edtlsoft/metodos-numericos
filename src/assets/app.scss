@@ -1,2 +1,11 @@
 // Bootstrap 4
 @import '~bootstrap/scss/bootstrap';
+
+
+.primary-color {
+    background-color: #4285f4!important;
+}
+
+.navbar.navbar-dark .navbar-nav .nav-item.active>.nav-link {
+    background-color: rgba(255,255,255,.1);
+}

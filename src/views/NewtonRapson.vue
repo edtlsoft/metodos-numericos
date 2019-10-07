@@ -7,8 +7,6 @@
     <Funcion />
 
     <Semillas />
-
-    <Raiz />
   </div>
 </template>
 
@@ -16,14 +14,12 @@
 // @ is an alias to /src
 import Funcion from '@/components/Funcion.vue'
 import Semillas from '@/components/Semillas.vue'
-import Raiz from '@/components/Raiz.vue'
 
 export default {
   name: 'Biseccion',
   components: {
     Funcion,
     Semillas,
-    Raiz,
   }
 }
 </script>

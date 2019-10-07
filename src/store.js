@@ -9,18 +9,7 @@ export default new Vuex.Store({
       text: '',
       code: '',
     },
-    semillas: [
-      {
-        a: 1,
-        b: 2,
-        c: 100
-      },
-      {
-        a: 5,
-        b: 6,
-        c: 5
-      }
-    ],
+    semillas: [],
   },
   mutations: {
     setTextFuncion(state, valor){
@@ -36,6 +25,9 @@ export default new Vuex.Store({
     vaciarSemillas(state) {
       state.semillas = []
     },
+    seleccionarSemilla(state, indice) {
+      state.semillas.forEach((obj, i) => { obj.checked = i === indice ? true : false })
+    }
 
   },
   actions: {
