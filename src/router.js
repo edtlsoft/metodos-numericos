@@ -23,5 +23,13 @@ export default new Router({
       path: '/secante',
       component: () => import(/* webpackChunkName: "secante" */ './views/Secante.vue')
     },
+    {
+      path: '/erl',
+      component: () => import(/* webpackChunkName: "erl" */ './views/Erl.vue')
+    },
+    {
+      path: '/erc',
+      component: () => import(/* webpackChunkName: "erc" */ './views/Erc.vue')
+    },
   ]
 })

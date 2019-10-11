@@ -13,3 +13,7 @@ try {
 } catch (e) {
     console.log('Error al intentar cargar los paquetes de bootstrap.', e)
 }
+
+
+// SweetAlert2
+window.Swal = require('sweetalert2');

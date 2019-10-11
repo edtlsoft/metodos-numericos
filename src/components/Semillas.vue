@@ -1,5 +1,17 @@
 <template>
-    <div class="col-12">
+    <div class="col-12 mt-5">
+        <div class="col-xs-6 col-md-4 ml-auto div-input-paso">
+            <div class="a">
+                <div class="input-group">
+                    <div class="input-group-append">
+                        <button type="button" class="btn btn-outline-primary">
+                            Paso:
+                        </button>
+                    </div>
+                    <input type="number" step="0.1" class="form-control" v-model="cantidad_paso">
+                </div>
+            </div>
+        </div>
         <table class="table table-sm table-bordered">
             <thead>
             <tr>
@@ -56,24 +68,55 @@ export default {
     },
 
     computed: {
-        ...mapState(['semillas', 'funcion']),
+        ...mapState(['semillas', 'paso', 'funcion']),
+
+        cantidad_paso: {
+            get() {
+                return this.paso
+            },
+            set(val) {
+                this.setValorPaso(val);
+            },
+        }
     },
 
     methods: {
-        ...mapMutations(['pushSemilla', 'vaciarSemillas', 'seleccionarSemilla']),
+        ...mapMutations(['pushSemilla', 'vaciarSemillas', 'seleccionarSemilla', 'setValorPaso']),
+
+        alertaFuncionVacia() {
+            Swal.fire({
+                type: 'error',
+                title: 'El campo funcion no tiene una expresion valida.',
+            });
+        },
+
+        alertaHallandoSemillas() {
+            Swal.fire({ 
+                title: 'Hallando semillas', 
+                allowEscapeKey: false, 
+                allowOutsideClick: false,
+                //timer: 2000,
+                onOpen: () => {
+                    Swal.showLoading();
+                }
+            })
+        },
 
         hallarSemillas() {
-            let a = -50, b = 0, c = 0, paso = 0.5, fa = 0, fb = 0, checked = false;
+            let a = -50, b = 0, c = 0, paso = this.paso, fa = 0, fb = 0, checked = false;
              
             if( this.funcion.code === '' ){
-                alert('Funcion no definida.');
+                this.alertaFuncionVacia();
+                return false;
             }
 
+            this.alertaHallandoSemillas();
             this.vaciarSemillas();
+
             fa = this.calcularFuncion(a);
 
             while ( a < 50 ) {
-                b = a + 0.5
+                b = a + paso;
                 fb = this.calcularFuncion(b);
 
                 if( fa * fb <= 0 ){
@@ -82,15 +125,16 @@ export default {
 
                     this.pushSemilla({a: a, b: b, c: c, checked: checked});
                 }
-
-                //console.log('a:', a, 'b:', b, 'fa:', fa, 'fb:', fb, 'c:', c);
-
+                console.log('a:', a, 'b:', b, 'fa:', fa, 'fb:', fb, 'c:', c);
                 a += paso;
                 fa = fb;
             }
+
+            setTimeout(() => { Swal.close(); }, 500);
         },
 
         calcularFuncion: function(x){
+            let e = 2.71828;
             return eval(this.funcion.code);
         },
 
@@ -99,5 +143,9 @@ export default {
 </script>
 
 <style scoped>
+
+.div-input-paso {
+    padding-right: 0px;
+}
 
 </style>

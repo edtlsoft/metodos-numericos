@@ -1,12 +1,8 @@
 <template>
   <div>
-    <Titulo titulo="Metodo de Biseccion" />
-
-    <Funcion />
+    <Titulo titulo="ERC" />
 
     <Semillas />
-
-    <Raiz />
   </div>
 </template>
 
@@ -15,15 +11,13 @@
 import Titulo from '@/components/Titulo.vue'
 import Funcion from '@/components/Funcion.vue'
 import Semillas from '@/components/Semillas.vue'
-import Raiz from '@/components/Raiz.vue'
 
 export default {
-  name: 'Biseccion',
+  name: 'Erc',
   components: {
     Titulo,
     Funcion,
     Semillas,
-    Raiz,
   }
 }
 </script>

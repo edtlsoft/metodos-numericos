@@ -9,7 +9,16 @@ export default new Vuex.Store({
       text: '',
       code: '',
     },
+
     semillas: [],
+    paso: 1,
+    
+    raiz: {
+      valor: null,
+      iteraciones: null,
+    },
+
+    coordenadas: [],
   },
   mutations: {
     setTextFuncion(state, valor){
@@ -27,7 +36,24 @@ export default new Vuex.Store({
     },
     seleccionarSemilla(state, indice) {
       state.semillas.forEach((obj, i) => { obj.checked = i === indice ? true : false })
-    }
+    },
+    setValorPaso(state, valor) {
+      state.paso = parseFloat(valor)
+    },
+
+    vaciarRaiz(state) {
+      state.raiz = {
+        valor: '',
+        iteraciones: '',
+      }
+    },
+
+    pushCoordenada(state, coordenada) {
+      state.coordenadas.push(coordenada);
+    },
+    eliminarCoordenada(state, indice) {
+      let x = state.coordenadas.splice(indice, 1);
+    },
 
   },
   actions: {

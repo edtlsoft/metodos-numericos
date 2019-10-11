@@ -1,8 +1,6 @@
 <template>
   <div>
-    <div class="mt-4">
-        <h1>Metodo de Biseccion</h1>
-    </div>
+    <Titulo titulo="Metodo de Secante" />
 
     <Funcion />
 
@@ -12,12 +10,14 @@
 
 <script>
 // @ is an alias to /src
+import Titulo from '@/components/Titulo.vue'
 import Funcion from '@/components/Funcion.vue'
 import Semillas from '@/components/Semillas.vue'
 
 export default {
   name: 'Biseccion',
   components: {
+    Titulo,
     Funcion,
     Semillas,
   }
