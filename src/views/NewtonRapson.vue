@@ -2,9 +2,11 @@
   <div>
     <Titulo titulo="Metodo de Newton Rapson" />
 
-    <Funcion />
+    <Funcion :derivada="true" />
 
     <Semillas />
+
+    <RaizNewtonRapson />
   </div>
 </template>
 
@@ -13,6 +15,7 @@
 import Titulo from '@/components/Titulo.vue'
 import Funcion from '@/components/Funcion.vue'
 import Semillas from '@/components/Semillas.vue'
+import RaizNewtonRapson from '@/components/RaizNewtonRapson.vue'
 
 export default {
   name: 'Biseccion',
@@ -20,6 +23,7 @@ export default {
     Titulo,
     Funcion,
     Semillas,
+    RaizNewtonRapson,
   }
 }
 </script>

@@ -23,7 +23,23 @@
                         <button type="button" class="btn btn-outline-primary"  @click="addSimboloEnLaFuncion('^')">^</button>
                     </div>
                     <div class="mt-2">
-                        <input type="text" class="form-control" :value="funcion.code">
+                        <input type="text" class="form-control" v-model="inp_funcion_code">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row" v-if="derivada">
+                <label for="funcion" class="col-sm-1 col-form-label">Funcion derivada</label>
+                <div class="col-sm-5">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="funcion" v-model="inp_funcion_derivada" placeholder="2X^2 + 2X + 5">
+                        <div class="input-group-append" v-if="inp_funcion_derivada !== ''">
+                            <button type="button" class="btn btn-outline-primary" @click="inp_funcion_derivada = ''">
+                                <i class="far fa-trash-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="mt-2">
+                        <input type="text" class="form-control" v-model="inp_funcion_derivada_code">
                     </div>
                 </div>
             </div>
@@ -37,6 +53,9 @@ import { mapState, mapMutations } from 'vuex'
 
 export default {
     name: "Funcion",
+    props: {
+        derivada: false,
+    },
     data(){
         return({
         })
@@ -61,11 +80,47 @@ export default {
             }
         },
 
-        ...mapState(['funcion', 'semillas', 'raiz']),
+        inp_funcion_code: {
+            get() {
+                return this.funcion.code
+            },
+            set(valor) {
+                this.setCodeFuncion(valor);
+            }
+        },
+
+        inp_funcion_derivada: {
+            get() {
+                return this.funcion_derivada.text
+            },
+            set(valor) {
+                this.setTextFuncionDerivada(valor);
+                this.setCodeFuncionDerivada(this.formatearCodeFuncion(valor));
+
+                if( this.semillas.length ){
+                    this.vaciarSemillas();
+                }
+
+                if( this.raiz.valor !== null ){
+                    this.vaciarRaiz();
+                }
+            }
+        },
+
+        inp_funcion_derivada_code: {
+            get() {
+                return this.funcion_derivada.code
+            },
+            set(valor) {
+                this.setCodeFuncionDerivada(valor);
+            }
+        },
+
+        ...mapState(['funcion', 'funcion_derivada', 'semillas', 'raiz']),
     },
 
     methods: {
-        ...mapMutations(['setTextFuncion', 'setCodeFuncion', 'vaciarSemillas', 'vaciarRaiz']),
+        ...mapMutations(['setTextFuncion', 'setCodeFuncion', 'setTextFuncionDerivada', 'setCodeFuncionDerivada', 'vaciarSemillas', 'vaciarRaiz']),
 
         addSimboloEnLaFuncion: function(append) {
             this.inp_funcion += append;

@@ -10,6 +10,11 @@ export default new Vuex.Store({
       code: '',
     },
 
+    funcion_derivada: {
+      text: '',
+      code: '',
+    },
+
     semillas: [],
     paso: 1,
     
@@ -26,6 +31,12 @@ export default new Vuex.Store({
     },
     setCodeFuncion(state, valor){
       state.funcion.code = valor
+    },
+    setTextFuncionDerivada(state, valor){
+      state.funcion_derivada.text = valor
+    },
+    setCodeFuncionDerivada(state, valor){
+      state.funcion_derivada.code = valor
     },
 
     pushSemilla(state, semilla) {

@@ -19,18 +19,18 @@
                 <th colspan="4" class="text-center">COORDENADAS</th>
             </tr>
             <tr>
-                <th>#</th>
-                <th>Valor X</th>
-                <th>Valor Y</th>
-                <th>Eliminar</th>
+                <th class="text-center">#</th>
+                <th class="text-center">Valor X</th>
+                <th class="text-center">Valor Y</th>
+                <th class="text-center">Eliminar</th>
             </tr>
             </thead>
             <tbody>
                 <template v-if="coordenadas.length">
                     <tr v-for="(coordenada, indice) in coordenadas" :key="indice">
-                        <td class="w-10 text-center">{{ indice + 1 }}</td>
-                        <td class="w-30 text-center">{{ coordenada.x }}</td>
-                        <td class="w-30 text-center">{{ coordenada.y }}</td>
+                        <td class="w-10 text-right">{{ indice + 1 }}</td>
+                        <td class="w-30 text-right">{{ coordenada.x }}</td>
+                        <td class="w-30 text-right">{{ coordenada.y }}</td>
                         <td class="w-10 text-center">                              
                             <button type="button" class="btn btn-sm btn-danger center-block" @click="eliminarCoordenada(indice)">
                                 X
@@ -61,8 +61,8 @@ export default {
     name: "Semillas",
     data(){
         return({
-            x: 0,
-            y: 0,
+            x: '',
+            y: '',
         })
     },
 
@@ -77,7 +77,7 @@ export default {
             if( this.x !== '' && this.y !== '' ){
                 this.pushCoordenada({x: this.x, y: this.y});
 
-                this.x = 0, this.y = 0;
+                this.x = '', this.y = '';
             }
         },
 

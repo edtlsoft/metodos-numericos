@@ -103,7 +103,7 @@ export default {
         },
 
         hallarSemillas() {
-            let a = -50, b = 0, c = 0, paso = this.paso, fa = 0, fb = 0, checked = false;
+            let a = -60, b = 0, c = 0, paso = this.paso, fa = 0, fb = 0, checked = false;
              
             if( this.funcion.code === '' ){
                 this.alertaFuncionVacia();
@@ -125,7 +125,7 @@ export default {
 
                     this.pushSemilla({a: a, b: b, c: c, checked: checked});
                 }
-                console.log('a:', a, 'b:', b, 'fa:', fa, 'fb:', fb, 'c:', c);
+                //console.log('a:', a, 'b:', b, 'fa:', fa, 'fb:', fb, 'c:', c);
                 a += paso;
                 fa = fb;
             }
