@@ -17,6 +17,7 @@ export default new Vuex.Store({
 
     semillas: [],
     paso: 1,
+    aproximacion: 4,
     
     raiz: {
       valor: null,
@@ -50,6 +51,9 @@ export default new Vuex.Store({
     },
     setValorPaso(state, valor) {
       state.paso = parseFloat(valor)
+    },
+    setValorAproximacion(state, valor) {
+      state.aproximacion = parseInt(valor)
     },
 
     vaciarRaiz(state) {

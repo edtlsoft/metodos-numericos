@@ -1,7 +1,7 @@
 <template>
     <div class="col-12 mt-5">
-        <div class="col-xs-6 col-md-4 ml-auto div-input-paso">
-            <div class="a">
+        <div class="col-6 col-md-4 ml-auto div-input-paso">
+            <div>
                 <div class="input-group">
                     <div class="input-group-append">
                         <button type="button" class="btn btn-outline-primary">
@@ -9,6 +9,14 @@
                         </button>
                     </div>
                     <input type="number" step="0.1" class="form-control" v-model="cantidad_paso">
+                </div>
+                <div class="input-group">
+                    <div class="input-group-append">
+                        <button type="button" class="btn btn-outline-primary">
+                            Aproximación:
+                        </button>
+                    </div>
+                    <input type="number" step="1" class="form-control" v-model="ceros_aprox">
                 </div>
             </div>
         </div>
@@ -68,7 +76,7 @@ export default {
     },
 
     computed: {
-        ...mapState(['semillas', 'paso', 'funcion']),
+        ...mapState(['semillas', 'paso', 'aproximacion', 'funcion']),
 
         cantidad_paso: {
             get() {
@@ -77,11 +85,20 @@ export default {
             set(val) {
                 this.setValorPaso(val);
             },
+        },
+
+        ceros_aprox: {
+            get() {
+                return this.aproximacion
+            },
+            set(val) {
+                this.setValorAproximacion(val);
+            },
         }
     },
 
     methods: {
-        ...mapMutations(['pushSemilla', 'vaciarSemillas', 'seleccionarSemilla', 'setValorPaso']),
+        ...mapMutations(['pushSemilla', 'vaciarSemillas', 'seleccionarSemilla', 'setValorPaso', 'setValorAproximacion']),
 
         alertaFuncionVacia() {
             Swal.fire({

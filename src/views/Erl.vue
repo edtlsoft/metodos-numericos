@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Titulo titulo="ERL" />
+    <Titulo titulo="Ecuación de regresión lineal" />
 
     <Coordenadas />
 

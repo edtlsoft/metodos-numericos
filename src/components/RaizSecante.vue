@@ -93,7 +93,7 @@ export default {
     },
 
     computed: {
-        ...mapState(['raiz', 'semillas', 'funcion', 'paso']),
+        ...mapState(['raiz', 'semillas', 'funcion', 'paso', 'aproximacion']),
 
         semillaChecked: {
             get(){
@@ -188,8 +188,8 @@ export default {
             return this.formatDecimales(((Xim1 - Xi) / Xim1) * 100)
         },
 
-        formatDecimales(numero, decimales=4) {
-            decimales = Math.pow(10, decimales);
+        formatDecimales(numero) {
+            let decimales = Math.pow(10, this.aproximacion || 4);
 
             return parseInt(numero * decimales) / decimales;
         },

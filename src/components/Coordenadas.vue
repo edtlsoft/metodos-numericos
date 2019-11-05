@@ -3,8 +3,8 @@
         <div class="col-xs-6 col-md-4 ml-auto div-input-paso">
             <div class="a">
                 <div class="input-group">
-                    <input type="number" class="form-control" v-model="x">
-                    <input type="number" class="form-control" v-model="y">
+                    <input type="number" class="form-control" v-model="x" placeholder="X">
+                    <input type="number" class="form-control" v-model="y" placeholder="Y">
                     <div class="input-group-append">
                         <button type="button" class="btn btn-outline-primary" @click="agregarCoordenada">
                             Agregar
@@ -45,7 +45,7 @@
                 </template>
                 <tr>
                     <td colspan="4" class="text-right">
-                        <button class="btn btn-primary" @click="x = 0">Hallar semillas</button>
+                        <button class="btn btn-primary d-none" @click="x = 0">Hallar semillas</button>
                     </td>
                 </tr>
             </tbody>

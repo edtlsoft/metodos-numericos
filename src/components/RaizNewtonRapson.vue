@@ -76,7 +76,7 @@ export default {
     },
 
     computed: {
-        ...mapState(['raiz', 'semillas', 'funcion', 'funcion_derivada']),
+        ...mapState(['raiz', 'semillas', 'funcion', 'funcion_derivada', 'aproximacion']),
 
         semillaChecked: {
             get(){
@@ -152,15 +152,15 @@ export default {
 
         calcularFuncion(x) {
             let e = 2.71828;
-            return eval(this.funcion.code);
+            return this.formatDecimales(eval(this.funcion.code));
         },
         calcularFuncionDerivada(x) {
             let e = 2.71828;
-            return eval(this.funcion_derivada.code);
+            return this.formatDecimales(eval(this.funcion_derivada.code));
         },
 
-        formatDecimales(numero, decimales=4) {
-            decimales = Math.pow(10, decimales);
+        formatDecimales(numero) {
+            let decimales = Math.pow(10, this.aproximacion || 4);
 
             return parseInt(numero * decimales) / decimales;
         },

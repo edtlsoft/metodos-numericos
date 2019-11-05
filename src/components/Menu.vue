@@ -19,10 +19,10 @@
                     <a class="nav-link">Secante</a>
                 </router-link>
                 <router-link to="/erl" class="nav-item" exact-active-class="active">
-                    <a class="nav-link">Erl</a>
+                    <a class="nav-link">Ecuación de regresión lineal</a>
                 </router-link>
                 <router-link to="/erc" class="nav-item" exact-active-class="active">
-                    <a class="nav-link">Erc</a>
+                    <a class="nav-link">Ecuación de regresión cuadrática</a>
                 </router-link>
             </ul>
         </div>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Titulo titulo="ERC" />
+    <Titulo titulo="Ecuación de regresión cuadrática" />
 
     <Coordenadas />
 
