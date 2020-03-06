@@ -24,6 +24,9 @@
                 <router-link to="/erc" class="nav-item" exact-active-class="active">
                     <a class="nav-link">Ecuación de regresión cuadrática</a>
                 </router-link>
+                <router-link to="/markov" class="nav-item" exact-active-class="active">
+                    <a class="nav-link">Cadenas de Markov</a>
+                </router-link>
             </ul>
         </div>
     </nav>

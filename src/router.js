@@ -31,5 +31,10 @@ export default new Router({
       path: '/erc',
       component: () => import(/* webpackChunkName: "erc" */ './views/Erc.vue')
     },
+
+    {
+      path: '/markov',
+      component: () => import(/* webpackChunkName: "markov" */ './views/Markov.vue')
+    },
   ]
 })
